@@ -1,53 +1,82 @@
-import React from 'react';
-import '../App.css';
+import styled from "styled-components";
+import {mobile} from '../responsive';
+
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Wrapper = styled.div`
+  width: 40%;
+  padding: 20px;
+  background-color: white;
+  ${mobile({ width: "75%" })}
+
+`;
+
+const Title = styled.h1`
+  font-size: 24px;
+  font-weight: 300;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const Input = styled.input`
+  flex: 1;
+  min-width: 40%;
+  margin: 20px 10px 0px 0px;
+  padding: 10px;
+`;
+
+const Agreement = styled.span`
+  font-size: 12px;
+  margin: 20px 0px;
+`;
+
+const Button = styled.button`
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+`;
 
 const Registration = () => {
   return (
-        <div className="register-photo">
-	<div className="form-container">
-		<div className="image-holder"></div>
+    <Container>
+      <Wrapper>
+        <Title>CREATE AN ACCOUNT</Title>
+        <Form>
+          <Input placeholder="first name" />
+          <Input placeholder="last name" />
+          <Input placeholder="location" />
+          <Input placeholder="email" />
+          <Input placeholder="phone number" />
+          <Input placeholder="password" />
+          <Agreement>
+            By creating an account, I consent to the processing of my personal
+            data in accordance with the <b>PRIVACY POLICY</b>
+          </Agreement>
+          <Button>CREATE</Button>
+        </Form>
+      </Wrapper>
+    </Container>
+  );
+};
 
-		<form method="post">
-			<h2 className="text-center"><strong>Create</strong> an account.</h2>
-
-			<div className="form-group">
-				<input className="form-control" type="email" name="email" placeholder="Email" />
-			</div>
-			
-			<div className="form-group">
-				<input className="form-control" type="password" name="password" placeholder="Password" />
-			</div>
-			
-			<div className="form-group">
-				<input className="form-control" type="password" name="password-repeat" placeholder="Password (repeat)" />
-			</div>
-			<div className="form-group">
-				<input className="form-control" type="text" name="first-name" placeholder="First Name" />
-			</div>
-			<div className="form-group">
-				<input className="form-control" type="text" name="last-name" placeholder="Last Name" />
-			</div>
-			<div className="form-group">
-				<input className="form-control" type="number" name="mobile" placeholder="Mobile Number" />
-			</div>
-			
-			<div className="form-group">
-				<div className="form-check">
-					<label className="form-check-label">
-						<input className="form-check-input" type="checkbox" />I agree to the license terms.
-					</label>
-				</div>
-			</div>
-
-			<div className="form-group">
-				<button className="btn btn-primary btn-block" type="submit">Sign Up</button>
-			</div>
-
-			{/* <a href="" className="already">You already have an account? Login here.</a> */}
-		</form>
-	</div>
-</div>
-  )
-}
-
-export default Registration
+export default Registration;

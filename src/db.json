@@ -1,0 +1,16 @@
+{
+    "users":[
+        {
+            "firstName" : "Sumit",
+            "lastName" : "Kumar",
+            "location" : "Jharkhand",
+            "email" : "sumitmahto77@gmail.com",
+            "phone" : "7297066735",
+            "password" :"12345"
+        }
+
+    ],
+    "products":[
+
+    ]
+}
