@@ -1,12 +1,12 @@
 {
   "users": [
     {
-      "email": "user@gmail.com",
-      "password": "$2a$10$UBn.ZUwrz479plNWPLkCJuiLlq/4NEFb4Af1aDtAOWJAUtww90RUu",
-      "firstName": "Sumit",
-      "lastName": "Kumar",
-      "location": "josx",
-      "phone": "07297066735",
+      "email": "u@gmail.com",
+      "password": "$2a$10$8EDXNPMaenuj62fKgP9kKeXxwuWYMqH/1I/q5/RdyBBY888tJ5tJm",
+      "firstName": "user",
+      "lastName": "kumar",
+      "location": "godda",
+      "phone": "12345",
       "id": 1
     }
   ],
