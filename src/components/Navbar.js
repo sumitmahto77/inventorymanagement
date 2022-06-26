@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components';
 import {Search} from '@mui/icons-material';
-import { Link } from 'react-router-dom';
+import {NavLink,useHistory} from 'react-router-dom';
 import {mobile} from "../responsive";
+import { useDispatch, useSelector } from 'react-redux';
+import { logoutUser } from '../redux/actions';
 
 const Container = styled.div`
     height:60px;
@@ -64,24 +66,80 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
+    let dispatch = useDispatch();
+    const history = useHistory();
+    const token = sessionStorage.getItem('token');
+       
   return (
-    <Container>
-        <Wrapper>
-            <Left>
-                <Language>EN</Language>
+    // <Container>
+    //     <Wrapper>
+    //         <Left>
+    //             <Language>EN</Language>
+                // <SearchContainer>
+                //     <Input placeholder='Search'/>
+                //     <Search style={{color:"gray",fontSize:16}} />
+
+                // </SearchContainer>
+    //         </Left>
+    //         <Center><Logo><Link to="/">IMS</Link></Logo></Center>
+    //         <Right>
+    //         <MenuItem><Link to="/register">REGISTER</Link></MenuItem>
+    //         <MenuItem><Link to="/login">SIGN IN</Link></MenuItem>
+    //         </Right>
+    //     </Wrapper>
+    // </Container>
+
+    
+    <nav className="navbar navbar-expand-lg navbar-light bg-info" id="main">
+        <div className="container-fluid mx-auto">
+        <NavLink  className="navbar-brand" to="/" >IMS</NavLink>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul className="navbar-nav mr-auto">
+                <li className="nav-item">
+                    <NavLink  className="nav-link active" aria-current="page" to="/" >HOME</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink  className="nav-link " aria-current="page" to="/about" >ABOUT</NavLink>
+                </li>
+                {token ? 
+                <>
+                <li className="nav-item">
+                    <NavLink  className="nav-link" aria-current="page" to="/" onClick={(e)=> {
+                        sessionStorage.clear();
+                        localStorage.clear();
+                        dispatch(logoutUser());
+                        history.push("/");
+                    }} >LOGOUT</NavLink>
+                </li>
+
+                </> : 
+                <>
+                <li className="nav-item">
+                    <NavLink  className="nav-link" aria-current="page" to="/login" >LOGIN</NavLink>
+                </li>
+                <li className="nav-item">
+                <NavLink  className="nav-link" aria-current="page" to="/register" >REGISTER</NavLink>
+                </li>
+                </>
+                }
+                
+                <li className="nav-item">
                 <SearchContainer>
                     <Input placeholder='Search'/>
                     <Search style={{color:"gray",fontSize:16}} />
 
                 </SearchContainer>
-            </Left>
-            <Center><Logo><Link to="/">IMS</Link></Logo></Center>
-            <Right>
-            <MenuItem><Link to="/register">REGISTER</Link></MenuItem>
-            <MenuItem><Link to="/login">SIGN IN</Link></MenuItem>
-            </Right>
-        </Wrapper>
-    </Container>
+
+                </li>
+                                  
+            </ul>
+        </div>
+        </div>
+    </nav>
+
   )
 }
 

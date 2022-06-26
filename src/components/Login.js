@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import {mobile} from "../responsive";
 
-import {useEffect, useState} from "react";
-import {useSelector, useDispatch} from "react-redux";
-import {useHistory} from "react-router-dom";
+import {useState} from "react";
+import {useDispatch} from "react-redux";
 import { loginInitiate } from "../redux/actions";
+import { useHistory } from "react-router";
 
-import PropTypes from 'prop-types';
-import axios from "axios";
+
 
 
 
@@ -68,66 +67,21 @@ const Link = styled.a`
 `;
 
 const Login = ({setToken}) => {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [error, setError] = useState("");
-
-  // let history = useHistory();
-  // let dispatch = useDispatch();
-  // const {user, error} = useSelector(state => state.auth);
-
-  // useEffect(() =>{
-  //   if(user){
-  //     history.push("/");
-  //   }
-
-  // },[user]);
-
-  // const login = (e) => {
-  //   e.preventDefault();
-  //   dispatch(loginInitiate(email,password));
-  // }
-
-  // const handleInputChange =(e) => {
-  //   let {name, value} = e.target;
-  //   if (name ==="email"){
-  //     setEmail(value);
-  //   }
-  //   else{
-  //     setPassword(value);
-  //   }
-  // };
-
-
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-function loginUser(credentials) {
-    axios.post("http://localhost:4000/login", credentials)
-    .then((response) => {
-      console.log("response", response); 
-      setToken(response.data.accessToken);   
-  })
-  .catch((error) => console.log(error));
-    // fetch('http://localhost:4000/login', {
-    //     method: 'POST',
-    //     headers: {'Content-Type' : 'application/json'},
-    //     body: JSON.stringify(credentials)
-    // })
-//     .then(res => res.json())
-}
+  const dispatch = useDispatch();
+  const history = useHistory();
 
 const handleSubmit =  e => {
   e.preventDefault();
-  const token = loginUser({
-      "email": email,
-      "password": password,
-  });  
+  dispatch(loginInitiate({
+    "email":email,
+    "password":password,
+  }));
+  history.push("/");
 }
 
-// function handleChange(e) {
-//     setFormData({...formData, [e.target.name] : e.target.value})
-// }
 
 
   return (
@@ -136,20 +90,13 @@ const handleSubmit =  e => {
         <Title>SIGN IN</Title>
         <Form onSubmit={e => handleSubmit(e)}>
           <Input type="text"  placeholder="username" onChange={e => setEmail(e.target.value)}/>
-          <Input  type="text" placeholder="password" onChange={e => setPassword(e.target.value)}/>
+          <Input  type="password" placeholder="password" onChange={e => setPassword(e.target.value)}/>
           <Button type="submit">LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
           <Link>CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
     </Container>
   );
 };
-
-
-
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired
-}
 
 export default Login;

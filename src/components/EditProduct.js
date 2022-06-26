@@ -1,10 +1,8 @@
-import axios from 'axios';
 import React,{useState} from 'react';
+import { useParams } from 'react-router';
 import styled from 'styled-components';
-import {mobile} from "../responsive";
-
-
-
+import { mobile } from '../responsive';
+import axios from 'axios';
 
 const Container = styled.div`
   width: 100vw;
@@ -61,23 +59,26 @@ const Link = styled.a`
   text-decoration: underline;
   cursor: pointer;
 `;
-const AddProduct = () => {
-  const [name, setName] = useState('');
-  const [imgLink, setImgLink] = useState('');
+
+const EditProduct = () => {
+    const {id} = useParams();
+    const [name,setName] = useState('');
+    const [imgLink, setImgLink] = useState('');
+    console.log(id);
 
 
-  const handleSubmit = e =>{
-    e.preventDefault();
-    axios.post("http://localhost:4000/products",{
-      "name":name,
-      "img":imgLink,
-    })
-    .then(response=>{
-      console.log(response);    
-    }).catch(error=>console.log(error));
-  };
-
-
+    const handleSubmit = e =>{
+        e.preventDefault();
+        axios.put(`http://localhost:4000/products/${id}`,{
+          "name":name,
+          "img":imgLink,
+        })
+        .then(response=>{
+          console.log(response);    
+        }).catch(error=>console.log(error));
+      };
+    
+    
   return (
     <div>
         <Container>
@@ -90,9 +91,8 @@ const AddProduct = () => {
             </Form>
           </Wrapper>
         </Container>
-
     </div>
   )
 }
 
-export default AddProduct
+export default EditProduct

@@ -1,6 +1,6 @@
-import React,{useState} from 'react';
+import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import {Provider, useSelector} from 'react-redux';
 import {PersistGate} from "redux-persist/integration/react";
 import {store,persistor} from './redux/store';
 import Registration from './components/Registration';
@@ -8,33 +8,28 @@ import Login from './components/Login';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import AddProduct from './components/AddProduct';
-import Footer from './components/Footer';
+import About from './components/About';
+import EditProduct from './components/EditProduct';
+import useToken from './App/useToken';
 
-import useToken from "./App/useToken";
 
 
-// function setToken(userToken) {
-//   sessionStorage.setItem('token', JSON.stringify(userToken));
-// }
 
-// function getToken() {
-//   const tokenString = sessionStorage.getItem('token');
-//   const userToken = JSON.parse(tokenString);
-//   return userToken?.token
-// }
 
 const App = () => {
-  const { token, setToken } = useToken();
+  // const { token, setToken } = useToken();
+  // const token = sessionStorage.getItem('token');
+  const token = useSelector((state)=>state.auth.token);
+  
   return (
     
       <Router>
-        {/* <Provider store={store}>
-          <PersistGate persistor={persistor}> */}
-        <Navbar/>
+        
+        <Navbar token={token}/>
       <Switch>
         <Route exact path="/" > <Home/></Route>
         <Route path="/login">
-          <Login setToken={setToken}/>
+          <Login />
         </Route>
         <Route path="/register" component={Registration}></Route>
         <Route path="/addproduct">
@@ -42,9 +37,9 @@ const App = () => {
         (!token) ? <Redirect to="/login"  /> : <AddProduct/>}
 
         </Route>
+        <Route path="/about"><About/></Route>
+        <Route path="/edit/:id" component={EditProduct}/>
       </Switch>
-      {/* </PersistGate>
-      </Provider> */}
       </Router>
     
   );

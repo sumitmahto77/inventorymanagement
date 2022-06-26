@@ -2,7 +2,6 @@ import React,{useState} from "react";
 import styled from "styled-components";
 import {mobile} from '../responsive';
 import {useDispatch} from 'react-redux';
-// import { addUser } from "../redux/actions";
 import { useHistory} from 'react-router-dom';
 import { registerInitiate } from "../redux/actions";
 
@@ -62,40 +61,10 @@ const Button = styled.button`
 `;
 
 const Registration = () => {
-  // const [state,setState] =useState({
-  //   firstName: "",
-  //   lastName: "",
-  //   location: "",
-  //   email: "",
-  //   phone: "",
-  //   password: ""
-  // });
-  // const [error, setError] = useState("");
-  // let dispatch = useDispatch();
-  // let history = useHistory();
-  // const {firstName,lastName,location,email,phone,password} = state;
-
-  // const handleInputChange =(e) => {
-  //   let {name, value} = e.target;
-  //   setState({...state, [name]:value});
-  // };
-
-  // const handleSubmit = (e) =>{
-  //   e.preventDefault();
-  //   if (!firstName || !lastName || !location || !email || !phone || !password) {
-  //     setError("Please input all fields");
-  //   }else{
-  //     // dispatch(addUser(state));
-  //     history.push("/");
-  //     setError("");
-  //   }
-  // };
-
-  // const register =  (e) => {
-  //   e.preventDefault();
-  //   dispatch(registerInitiate(state));
-  // }
-
+  const [error, setError] = useState("");
+  let dispatch = useDispatch();
+  let history = useHistory();
+ 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -108,14 +77,15 @@ const Registration = () => {
   const {firstName,lastName,location,email,phone,password} = formData;
 
   function handleSubmit(e) {
-    e.preventDefault()
-    fetch('http://localhost:4000/users', {
-        method: 'POST',
-        headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify(formData)
-    })
-    .then(res => res.json())
-    .then(data => console.log(data))
+    e.preventDefault();
+    if (!firstName || !lastName || !location || !email || !phone || !password) {
+      setError("Please input all fields");
+    }else{
+      dispatch(registerInitiate(formData));
+      history.push("/");
+      setError("");
+    }
+    
 }
 
 function handleChange(e) {
@@ -126,14 +96,14 @@ function handleChange(e) {
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
-        {/* {error && <h3>{error}</h3>} */}
+
         <Form onSubmit={e=>handleSubmit(e)}>
-          <Input placeholder="first name" name="firstName" label="First Name" value={firstName} type="text" onChange={e=>handleChange(e)}/>
-          <Input placeholder="last name" name="lastName" label="Last Name" value={lastName} type="text" onChange={e=>handleChange(e)}/>
-          <Input placeholder="location" name="location" label="Location" value={location} type="text" onChange={e=>handleChange(e)}/>
-          <Input placeholder="email" name="email" label="Email" value={email} type="email" onChange={e=>handleChange(e)}/>
-          <Input placeholder="phone number" name="phone" label="Phone" value={phone} type="text" onChange={e=>handleChange(e)}/>
-          <Input placeholder="password" name="password" label="Password" value={password} type="password" onChange={e=>handleChange(e)}/>
+          <Input placeholder="first name" name="firstName" value={firstName} type="text" onChange={e=>handleChange(e)}/>
+          <Input placeholder="last name" name="lastName" value={lastName} type="text" onChange={e=>handleChange(e)}/>
+          <Input placeholder="location" name="location" value={location} type="text" onChange={e=>handleChange(e)}/>
+          <Input placeholder="email" name="email" value={email} type="email" onChange={e=>handleChange(e)}/>
+          <Input placeholder="phone number" name="phone" value={phone} type="text" onChange={e=>handleChange(e)}/>
+          <Input placeholder="password" name="password" value={password} type="password" onChange={e=>handleChange(e)}/>
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>

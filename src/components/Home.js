@@ -1,13 +1,13 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Products from './Products';
 import Footer from './Footer';
-import { useDispatch,useSelector} from 'react-redux';
-// import { loadUsers } from '../redux/actions';
+import {Link} from 'react-router-dom';
 
 const Home = () => {
   
   return (
     <div>
+      <Link to="/addproduct">Add Product</Link>
       <Products/>
       <Footer/>
        

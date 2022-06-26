@@ -8,36 +8,88 @@
       "location": "godda",
       "phone": "12345",
       "id": 1
+    },
+    {
+      "email": "sumitmahto77@gmail.com",
+      "password": "$2a$10$6fvfGsLFpmog6hMfJaGct.mCOqpXkhst9dpMHQ/AfGMa7djtBbv1e",
+      "firstName": "Sumit",
+      "lastName": "Kumar",
+      "location": "Bangalaore",
+      "phone": "07297066735",
+      "id": 2
+    },
+    {
+      "email": "u2@gmail.com",
+      "password": "$2a$10$J01ATRBfdOUrVojGOMbILe4fUGqehiUDexO6l7fydzih6ZG1l.Pcu",
+      "firstName": "User2",
+      "lastName": "Kumar2",
+      "location": "Howran",
+      "phone": "123456789",
+      "id": 3
+    },
+    {
+      "email": "u777@gmail.com",
+      "password": "$2a$10$GR8qc6Y.6677hhWhEiNPfeRDLJ80w.WP1yMNWQBUXTzw0/o3l4pL.",
+      "firstName": "User3",
+      "lastName": "Kumar",
+      "location": "bangala",
+      "phone": "07297066735",
+      "id": 4
+    },
+    {
+      "email": "amit@gmail.com",
+      "password": "$2a$10$WPRNWlOpn6XuqQwmTTbH.ezCuZAkr6aetqTTsxPf0p8oPZZjaA0Yu",
+      "firstName": "Amit ",
+      "lastName": "Kumar",
+      "location": "Delhi",
+      "phone": "999999999",
+      "id": 5
+    },
+    {
+      "email": "user9@gmail.com",
+      "password": "$2a$10$hH1d4Badkuq3lnhjxFhRD.SATQehrn62km6c3oj5nq6o0SJzBXGRa",
+      "firstName": "user9",
+      "lastName": "kumar9",
+      "location": "loc9",
+      "phone": "12345",
+      "id": 6
     }
   ],
   "products": [
     {
-      "id": 1,
-      "img": "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png"
+      "name": "Nike",
+      "img": "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "id": 1
     },
     {
-      "id": 3,
+      "id": 2,
+      "name": "Shirt",
       "img": "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png"
     },
     {
-      "id": 4,
+      "id": 3,
+      "name": "Dress",
       "img": "https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png"
     },
     {
-      "id": 5,
+      "id": 4,
+      "name": "Bag",
       "img": "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png"
     },
     {
-      "id": 6,
+      "id": 5,
+      "name": "Cap",
       "img": "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png"
     },
     {
-      "id": 7,
-      "img": "https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png"
+      "name": "Shoes",
+      "img": "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?cs=srgb&dl=pexels-melvin-buezo-2529148.jpg&fm=jpg",
+      "id": 6
     },
     {
-      "id": 8,
-      "img": "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png"
+      "name": "Nike",
+      "img": "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "id": 7
     }
   ]
 }
