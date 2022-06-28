@@ -99,7 +99,5 @@ export const registerInitiate = (user) => {
 export const logoutUser = () =>{
     return function (dispatch){
         dispatch(logout());
-        
-        
     }
 }

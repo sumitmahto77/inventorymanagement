@@ -1,8 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
-import {Provider, useSelector} from 'react-redux';
-import {PersistGate} from "redux-persist/integration/react";
-import {store,persistor} from './redux/store';
+import {useSelector} from 'react-redux';
 import Registration from './components/Registration';
 import Login from './components/Login';
 import Home from './components/Home';
@@ -10,7 +8,9 @@ import Navbar from './components/Navbar';
 import AddProduct from './components/AddProduct';
 import About from './components/About';
 import EditProduct from './components/EditProduct';
-import useToken from './App/useToken';
+import ProductDetails from './components/ProductDetails';
+import Chart from './components/Chart';
+
 
 
 
@@ -38,7 +38,11 @@ const App = () => {
 
         </Route>
         <Route path="/about"><About/></Route>
-        <Route path="/edit/:id" component={EditProduct}/>
+        <Route path="/edit/:id" >
+        {(!token) ? <Redirect to="/login"  /> : <EditProduct/>}
+        </Route>
+        <Route path='/productdetails/:id' component={ProductDetails} />
+        <Route path='/chart' component={Chart} />
       </Switch>
       </Router>
     

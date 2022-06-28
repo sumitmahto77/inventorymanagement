@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import {Search} from '@mui/icons-material';
 import {NavLink,useHistory} from 'react-router-dom';
 import {mobile} from "../responsive";
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,17 +27,8 @@ const Language = styled.span`
     cursor: pointer; 
     ${mobile({ display: "none" })}    
 `;
-const SearchContainer = styled.div`
-    border: 0.5px solid lightgray;
-    display; flex;
-    align-items: center;
-    margin-left: 25px;
-    padding: 5px;
-`;
-const Input = styled.input`
-    border:none;
-    ${mobile({ width: "50px" })}
-`;
+
+
 
 const Center = styled.div`
     flex:1;
@@ -125,16 +115,7 @@ const Navbar = () => {
                 </li>
                 </>
                 }
-                
-                <li className="nav-item">
-                <SearchContainer>
-                    <Input placeholder='Search'/>
-                    <Search style={{color:"gray",fontSize:16}} />
-
-                </SearchContainer>
-
-                </li>
-                                  
+                                   
             </ul>
         </div>
         </div>

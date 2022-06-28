@@ -7,7 +7,8 @@ const Home = () => {
   
   return (
     <div>
-      <Link to="/addproduct">Add Product</Link>
+      <Link to="/addproduct" style={{padding:'5px'}}>Add Product</Link>
+      <Link to="/chart" style={{padding:'5px'}}> Most Viewed Products</Link>
       <Products/>
       <Footer/>
        

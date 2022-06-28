@@ -1,8 +1,8 @@
-  import { Edit } from '@mui/icons-material';
+  import { Edit, Info } from '@mui/icons-material';
   import styled from "styled-components";
   import { Link } from 'react-router-dom';
   
-  const Info = styled.div`
+  const Infos = styled.div`
     opacity: 0;
     width: 100%;
     height: 100%;
@@ -28,7 +28,7 @@
     justify-content: center;
     background-color: #f5fbfd;
     position: relative;
-    &:hover ${Info}{
+    &:hover ${Infos}{
       opacity: 1;
     }
   `;
@@ -45,6 +45,7 @@
     height: 75%;
     z-index: 2;
   `;
+ 
   
   const Icon = styled.div`
     width: 40px;
@@ -58,7 +59,7 @@
     transition: all 0.5s ease;
     &:hover {
       background-color: #e9f5f5;
-      transform: scale(1.1);
+      transform: scale(1.5);
     }
   `;
   
@@ -66,14 +67,26 @@
     return (
       <Container>
         <Circle />
+
         <Image src={item.img} />
-        <Info>
+        
+        <Infos>
           <Icon>
-              <Link to={`/edit/${item.id}`}>
+              <Link to={`/edit/${item.id}`} style={{ color: 'inherit'}}>
                 <Edit />
               </Link>
           </Icon>
-        </Info>
+          <Icon>
+            <Link to={`/productdetails/${item.id}`} style={{ color:'inherit' }}>
+              <Info />
+            </Link>
+          </Icon>
+          
+          
+        </Infos>
+        
+        
+
       </Container>
     );
   };

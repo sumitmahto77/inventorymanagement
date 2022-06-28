@@ -2,6 +2,7 @@ import axios from 'axios';
 import React,{useState} from 'react';
 import styled from 'styled-components';
 import {mobile} from "../responsive";
+import {Prompt} from 'react-router';
 
 
 
@@ -64,6 +65,10 @@ const Link = styled.a`
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [imgLink, setImgLink] = useState('');
+  const [description, setDescription] = useState('');
+  const [manufacturer, setManufacturer] = useState('');
+  const [price, setPrice] = useState('');
+  const [quantity, setQuantity] = useState('');
 
 
   const handleSubmit = e =>{
@@ -71,6 +76,10 @@ const AddProduct = () => {
     axios.post("http://localhost:4000/products",{
       "name":name,
       "img":imgLink,
+      "description" : description,
+      "manufacturer" : manufacturer,
+      "price" : price,
+      "quantity" : quantity
     })
     .then(response=>{
       console.log(response);    
@@ -86,6 +95,10 @@ const AddProduct = () => {
             <Form onSubmit={e=>handleSubmit(e)}>
               <Input type="text"  placeholder='name'  onChange={e=>setName(e.target.value)}/>
               <Input type="text" placeholder='Image Link' onChange={e=>setImgLink(e.target.value)} />
+              <Input type="text" placeholder='Description' onChange={e=>setDescription(e.target.value)} />
+              <Input type="text" placeholder='Manufacturer' onChange={e=>setManufacturer(e.target.value)} />
+              <Input type="text" placeholder='Price' onChange={e=>setPrice(e.target.value)} />
+              <Input type="text" placeholder='Quantity' onChange={e=>setQuantity(e.target.value)} />
               <Button type="submit">SUBMIT</Button>
             </Form>
           </Wrapper>

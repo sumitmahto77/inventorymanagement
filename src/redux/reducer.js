@@ -28,7 +28,7 @@ import * as types from './actionType';
 
 
 
-const initialState ={
+const initialAuthState ={
     user : null,
     loading : false,
     error : null,
@@ -36,7 +36,13 @@ const initialState ={
 
 };
 
-const authReducer = (state = initialState, action) => {
+const initialProdState = {
+    products : null,
+    loading : false,
+    product : null
+}
+
+export const authReducer = (state = initialAuthState, action) => {
     switch (action.type){
         case types.LOGIN_START:
         case types.REGISTER_START:
@@ -70,6 +76,12 @@ const authReducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
 
-export default authReducer;
+export const prodReducer =(state=initialProdState,action) => {
+    switch (action.type){
+        default:
+            return state;
+    }
+
+}

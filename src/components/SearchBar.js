@@ -1,24 +1,32 @@
 import React,{useState} from 'react';
-import { popularProducts } from '../data/data';
+import styled from 'styled-components';
+import {mobile} from '../responsive';
+import {Search} from '@mui/icons-material';
+
+
+
+const SearchContainer = styled.div`
+    border: 0.5px solid lightgray;
+    display; flex;
+    align-items: center;
+    margin-left: 25px;
+    padding: 5px;
+`;
+
+const Input = styled.input`
+    border:none;
+    ${mobile({ width: "50px" })}
+`;
+
 
 const SearchBar = () => {
-    const [searchInput, setSearchInput] = useState("");
-    const handleChange = (e) => {
-        e.preventDefault();
-        setSearchInput(e.target.value);
-      };
-      if (searchInput.length > 0) {
-          countries.filter((country) => {
-          return country.name.match(searchInput);
-      });
-      }
+  
   return (
     <div>
-        <input
-   type="text"
-   placeholder="Search here"
-   onChange={handleChange}
-   value={searchInput} />
+        <SearchContainer>
+          <Input placeholder='Search'/>
+          <Search style={{color:"gray",fontSize:16}} />
+        </SearchContainer>
     </div>
   )
 }
