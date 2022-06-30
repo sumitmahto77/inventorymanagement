@@ -10,6 +10,7 @@ import About from './components/About';
 import EditProduct from './components/EditProduct';
 import ProductDetails from './components/ProductDetails';
 import Chart from './components/Chart';
+import DeleteProduct from './components/DeleteProduct';
 
 
 
@@ -33,10 +34,9 @@ const App = () => {
         </Route>
         <Route path="/register" component={Registration}></Route>
         <Route path="/addproduct">
-        {
-        (!token) ? <Redirect to="/login"  /> : <AddProduct/>}
-
+        {(!token) ? <Redirect to="/login"  /> : <AddProduct/>}
         </Route>
+        <Route path="/delete" component={DeleteProduct} />
         <Route path="/about"><About/></Route>
         <Route path="/edit/:id" >
         {(!token) ? <Redirect to="/login"  /> : <EditProduct/>}

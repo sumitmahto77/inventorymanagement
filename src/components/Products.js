@@ -1,7 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch,useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import styled from "styled-components";
+import { loadProducts } from "../redux/actions";
 import Product from "./Product";
 import SearchBar from "./SearchBar";
 
@@ -15,24 +17,14 @@ const Container = styled.div`
 
 const Products = () => {
   const [error, setError] = useState(null);
-  const [productList, setProductList] = useState([]);
+  const productList = useSelector(state => state.prod.products)
   const [isLoaded, setIsLoaded] = useState(false);
 
   const [q, setQ] = useState("");
   const [searchParam] = useState(["name"]);
+  const dispatch = useDispatch();
   useEffect(()=>{
-    axios
-      .get("http://localhost:4000/products")
-      .then(response =>{
-        setProductList(response.data);
-        setIsLoaded(true);
-      })
-      .catch((error)=>{
-        console.log(error);
-        setIsLoaded(true);
-        setError(error);
-      })
-
+    dispatch(loadProducts());
   },[]);
 
   // return (
@@ -60,8 +52,8 @@ const Products = () => {
 
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
+  // } else if (!isLoaded) {
+  //   return <div>Loading...</div>;
   } else {
     return (
       <Container>

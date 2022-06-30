@@ -64,6 +64,11 @@ const EditProduct = () => {
     const {id} = useParams();
     const [name,setName] = useState('');
     const [imgLink, setImgLink] = useState('');
+    const [description, setDescription] = useState('');
+    const [manufacturer, setManufacturer] = useState('');
+    const [price, setPrice] = useState('');
+    const [quantity, setQuantity] = useState('');
+
     console.log(id);
 
 
@@ -72,6 +77,10 @@ const EditProduct = () => {
         axios.put(`http://localhost:4000/products/${id}`,{
           "name":name,
           "img":imgLink,
+          "description" : description,
+          "manufacturer" : manufacturer,
+          "price" : price,
+          "quantity" : quantity,
         })
         .then(response=>{
           console.log(response);    
@@ -87,6 +96,10 @@ const EditProduct = () => {
             <Form onSubmit={e=>handleSubmit(e)}>
               <Input type="text"  placeholder='name'  onChange={e=>setName(e.target.value)}/>
               <Input type="text" placeholder='Image Link' onChange={e=>setImgLink(e.target.value)} />
+              <Input type="text" placeholder='Description' onChange={e=>setDescription(e.target.value)} />
+              <Input type="text" placeholder='Manufacturer' onChange={e=>setManufacturer(e.target.value)} />
+              <Input type="text" placeholder='Price' onChange={e=>setPrice(e.target.value)} />
+              <Input type="text" placeholder='Quantity' onChange={e=>setQuantity(e.target.value)} />
               <Button type="submit">SUBMIT</Button>
             </Form>
           </Wrapper>

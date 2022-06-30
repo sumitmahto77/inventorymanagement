@@ -37,9 +37,9 @@ const initialAuthState ={
 };
 
 const initialProdState = {
-    products : null,
-    loading : false,
-    product : null
+    products : [],
+    loading : true,
+    product : {}
 }
 
 export const authReducer = (state = initialAuthState, action) => {
@@ -80,6 +80,23 @@ export const authReducer = (state = initialAuthState, action) => {
 
 export const prodReducer =(state=initialProdState,action) => {
     switch (action.type){
+        case types.GET_PRODUCTS:
+            return {
+                ...state,
+                products : action.payload,
+                loading: false,
+            };
+
+        case types.ADD_PRODUCT:
+            return{
+                ...state
+            }
+        case types.DELETE_PRODUCT:
+            return{
+                ...state,
+                loading :false,
+            }
+
         default:
             return state;
     }

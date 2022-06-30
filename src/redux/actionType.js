@@ -1,5 +1,6 @@
-// export const GET_USERS ="GET_USERS";
-// export const ADD_USER = "ADD_USER";
+export const GET_PRODUCTS ="GET_PRODUCTS";
+export const ADD_PRODUCT = "ADD_PRODUCT";
+export const DELETE_PRODUCT ="DELETE_PRODUCT";
 
 export const LOGIN_START = "LOGIN_START";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";

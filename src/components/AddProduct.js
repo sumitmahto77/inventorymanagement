@@ -3,6 +3,8 @@ import React,{useState} from 'react';
 import styled from 'styled-components';
 import {mobile} from "../responsive";
 import {Prompt} from 'react-router';
+import { useDispatch } from 'react-redux';
+import { addProduct } from '../redux/actions';
 
 
 
@@ -70,20 +72,32 @@ const AddProduct = () => {
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');
 
+  const dispatch = useDispatch();
 
+  
   const handleSubmit = e =>{
     e.preventDefault();
-    axios.post("http://localhost:4000/products",{
+    // axios.post("http://localhost:4000/products",{
+    //   "name":name,
+    //   "img":imgLink,
+    //   "description" : description,
+    //   "manufacturer" : manufacturer,
+    //   "price" : price,
+    //   "quantity" : quantity
+    // })
+    // .then(response=>{
+    //   console.log(response);    
+    // }).catch(error=>console.log(error));
+
+    dispatch(addProduct({
       "name":name,
       "img":imgLink,
       "description" : description,
       "manufacturer" : manufacturer,
       "price" : price,
-      "quantity" : quantity
-    })
-    .then(response=>{
-      console.log(response);    
-    }).catch(error=>console.log(error));
+      "quantity" : quantity,
+      "count" : 0
+    }))
   };
 
 

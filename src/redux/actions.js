@@ -1,38 +1,53 @@
 import * as types from './actionType';
 import axios from 'axios';
 
-// const getUsers = (users) => ({
-//     type: types.GET_USERS,
-//     payload: users,
-// });
+const getProducts = (products) => ({
+    type: types.GET_PRODUCTS,
+    payload: products,
+});
 
-// const userAdded = () =>({
-//     type:types.ADD_USER,
+const productAdded = () =>({
+    type:types.ADD_PRODUCT,
+});
 
-// });
+const productDeleted = () => ({
+    type : types.DELETE_PRODUCT,
+});
 
-// export const loadUsers = () => {
-//     return function(dispatch){
-//         axios.get("http://localhost:4000/users")
-//         .then((response) => {
-//             console.log("response", response);
-//             dispatch(getUsers(response.data));
-//         })
-//         .catch((error) => console.log(error));
-//     };
-// };
+export const loadProducts = () => {
+    return function(dispatch){
+        axios.get("http://localhost:4000/products")
+        .then((response) => {
+            dispatch(getProducts(response.data));
+        }).catch((error) => console.log(error));
+    };
+};
 
-// export const addUser = (user) => {
-//     return function (dispatch){
-//         axios
-//             .post("http://localhost:4000/users",user)
-//             .then((response) =>{
-//                 console.log("response",response);
-//                 dispatch(userAdded());
-//             })
-//             .catch((error) => console.log(error));
-//     };
-// };
+export const addProduct = (product) => {
+    return function (dispatch){
+        axios
+            .post("http://localhost:4000/products",product)
+            .then((response) =>{
+                console.log("response",response);
+                dispatch(productAdded());
+                dispatch(loadProducts());
+            })
+            .catch((error) => console.log(error));
+    };
+};
+
+export const deleteProduct = (id) => {
+    return function (dispatch){
+        axios
+            .delete(`http://localhost:4000/products/${id}`)
+            .then((response)=>{
+                console.log(response);
+                dispatch(productDeleted());
+                dispatch(loadProducts());
+            })
+            .catch((error) => console.log(error));
+    };
+};
 
 
 const loginStart = () => ({

@@ -58,7 +58,7 @@ const MenuItem = styled.div`
 const Navbar = () => {
     let dispatch = useDispatch();
     const history = useHistory();
-    const token = sessionStorage.getItem('token');
+    const token = useSelector(state => state.auth.token)
        
   return (
     // <Container>
