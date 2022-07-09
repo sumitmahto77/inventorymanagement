@@ -6,7 +6,6 @@
   .register-photo .image-holder {
     display:table-cell;
     width:auto;
-    background:url(https://unsplash.com/photos/jLjfAWwHdB8);
     background-size:cover;
   }
   
@@ -82,4 +81,5 @@
     opacity:0.9;
     text-decoration:none;
   }
-  
+
+ 

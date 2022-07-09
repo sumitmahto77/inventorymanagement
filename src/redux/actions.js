@@ -23,6 +23,8 @@ export const loadProducts = () => {
     };
 };
 
+
+
 export const addProduct = (product) => {
     return function (dispatch){
         axios

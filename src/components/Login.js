@@ -66,7 +66,7 @@ const Link = styled.a`
   cursor: pointer;
 `;
 
-const Login = ({setToken}) => {
+const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 

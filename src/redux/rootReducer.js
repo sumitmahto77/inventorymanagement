@@ -4,16 +4,6 @@ import storage from "redux-persist/lib/storage";
 import {authReducer,prodReducer} from "./reducer";
 
 
-
-
-// const rootReducer = combineReducers({
-//     users: usersReducers
-// });
-
-// export default rootReducer; 
-
-
-
 const persistConfig = {
     key : "root",
     storage,

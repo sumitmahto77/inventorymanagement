@@ -1,14 +1,13 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { useHistory } from "react-router";
 import styled from "styled-components";
 import { loadProducts } from "../redux/actions";
 import Product from "./Product";
-import SearchBar from "./SearchBar";
 
 
 const Container = styled.div`
+`;
+const Wrapper = styled.div`
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -57,25 +56,19 @@ const Products = () => {
   } else {
     return (
       <Container>
-        <div className="search-wrapper">
-          <label htmlFor="search-form">
+        <Wrapper>
               <input
                   type="search"
-                  name="search-form"
-                  id="search-form"
-                  className="search-input"
                   placeholder="Search for..."
                   value={q}
                   onChange={(e) => setQ(e.target.value)}
-              />
-          </label>
-        </div>
-                    
+              />  
+        </Wrapper>
+      <Wrapper>          
           {search(productList).map((item) => (
-            <Product item={item} key={item.id} />
-              
+            <Product item={item} key={item.id} />   
           ))}
-      
+      </Wrapper>
       </Container>
     );
   }

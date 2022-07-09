@@ -11,6 +11,7 @@ import EditProduct from './components/EditProduct';
 import ProductDetails from './components/ProductDetails';
 import Chart from './components/Chart';
 import DeleteProduct from './components/DeleteProduct';
+import Profile from './components/Profile';
 
 
 
@@ -18,8 +19,6 @@ import DeleteProduct from './components/DeleteProduct';
 
 
 const App = () => {
-  // const { token, setToken } = useToken();
-  // const token = sessionStorage.getItem('token');
   const token = useSelector((state)=>state.auth.token);
   
   return (
@@ -35,6 +34,9 @@ const App = () => {
         <Route path="/register" component={Registration}></Route>
         <Route path="/addproduct">
         {(!token) ? <Redirect to="/login"  /> : <AddProduct/>}
+        </Route>
+        <Route path="/profile">
+        {(!token) ? <Redirect to="/login"  /> : <Profile/>}
         </Route>
         <Route path="/delete" component={DeleteProduct} />
         <Route path="/about"><About/></Route>

@@ -67,9 +67,7 @@
     return (
       <Container>
         <Circle />
-
         <Image src={item.img} />
-        
         <Infos>
           <Icon>
               <Link to={`/edit/${item.id}`} style={{ color: 'inherit'}}>
@@ -80,13 +78,8 @@
             <Link to={`/productdetails/${item.id}`} style={{ color:'inherit' }}>
               <Info />
             </Link>
-          </Icon>
-          
-          
+          </Icon>  
         </Infos>
-        
-        
-
       </Container>
     );
   };

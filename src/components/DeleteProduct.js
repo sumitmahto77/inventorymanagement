@@ -37,7 +37,6 @@ const DeleteProduct = () => {
     let arrayids = [];
     stateProduct.forEach(d => {
       if (d.select) {
-        // arrayids.push(d.id);
         axios
       .delete(`http://localhost:4000/products/${d.id}`)
       .then(data => {
@@ -61,7 +60,7 @@ const DeleteProduct = () => {
                 type="checkbox"
                 onChange={e => {
                   let value = e.target.checked;
-                  
+
                   setProductState(
                     stateProduct.map(product => {
                       product.select = value;

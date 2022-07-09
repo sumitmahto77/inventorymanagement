@@ -5,19 +5,20 @@ import {Chart as ChartJS} from 'chart.js/auto'
 
 const Chart = () => {
   const products = useSelector(state => state.prod.products);
-  console.log(products);
+  const topProducts=products.sort((a,b)=>b-a).slice(0,5);
+  console.log(topProducts);
   
   return (
     <Bar 
     data={{
-      labels : products.map((data)=>data.name),
+      labels : topProducts.map((data)=>data.name),
       datasets : [{
         label : "Number of visits",
-        data : products.map((data)=>data.count) ,
+        data : topProducts.map((data)=>data.count) ,
         backgroundColor : ["black","gray"]
       }]
     }}
-
+    
     />
   )
 }

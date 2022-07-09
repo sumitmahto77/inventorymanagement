@@ -1,46 +1,16 @@
 import * as types from './actionType';
 
-// const initialState = 
-// {
-//     users: [],
-//     user: {},
-//     loading:true,
-// };
-
-// const usersReducers = (state = initialState,action) =>
-// {
-//     switch(action.type) 
-//     {
-//         case types.GET_USERS:
-//             return {
-//                 ...state,
-//                 users: action.payload,
-//                 loading: false,
-//             };
-//         case types.ADD_USER:
-//         default:
-//             return state;
-//     }
-// }
-
-
-// export default usersReducers;
-
-
-
 const initialAuthState ={
     user : null,
     loading : false,
     error : null,
     token : null
-
 };
 
 const initialProdState = {
     products : [],
     loading : true,
-    product : {}
-}
+};
 
 export const authReducer = (state = initialAuthState, action) => {
     switch (action.type){
@@ -86,7 +56,6 @@ export const prodReducer =(state=initialProdState,action) => {
                 products : action.payload,
                 loading: false,
             };
-
         case types.ADD_PRODUCT:
             return{
                 ...state

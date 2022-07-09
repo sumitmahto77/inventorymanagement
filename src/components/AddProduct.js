@@ -1,8 +1,6 @@
-import axios from 'axios';
 import React,{useState} from 'react';
 import styled from 'styled-components';
 import {mobile} from "../responsive";
-import {Prompt} from 'react-router';
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../redux/actions';
 
@@ -25,7 +23,7 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  width: 25%;
+  width: 40%;
   padding: 20px;
   background-color: white;
   ${mobile({ width: "75%" })}
@@ -58,12 +56,6 @@ const Button = styled.button`
   margin-bottom: 10px;
 `;
 
-const Link = styled.a`
-  margin: 5px 0px;
-  font-size: 12px;
-  text-decoration: underline;
-  cursor: pointer;
-`;
 const AddProduct = () => {
   const [name, setName] = useState('');
   const [imgLink, setImgLink] = useState('');
@@ -77,18 +69,6 @@ const AddProduct = () => {
   
   const handleSubmit = e =>{
     e.preventDefault();
-    // axios.post("http://localhost:4000/products",{
-    //   "name":name,
-    //   "img":imgLink,
-    //   "description" : description,
-    //   "manufacturer" : manufacturer,
-    //   "price" : price,
-    //   "quantity" : quantity
-    // })
-    // .then(response=>{
-    //   console.log(response);    
-    // }).catch(error=>console.log(error));
-
     dispatch(addProduct({
       "name":name,
       "img":imgLink,

@@ -89,22 +89,24 @@ const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <NavLink  className="nav-link active" aria-current="page" to="/" >HOME</NavLink>
+                    <NavLink  className="nav-link"  to="/" >HOME</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink  className="nav-link " aria-current="page" to="/about" >ABOUT</NavLink>
+                    <NavLink  className="nav-link "  to="/about" >ABOUT</NavLink>
                 </li>
                 {token ? 
                 <>
                 <li className="nav-item">
-                    <NavLink  className="nav-link" aria-current="page" to="/" onClick={(e)=> {
+                <NavLink  className="nav-link"  to="/profile" >PROFILE</NavLink>
+                </li>
+                <li className="nav-item">
+                    <NavLink  className="nav-link"  to="/" onClick={(e)=> {
                         sessionStorage.clear();
                         localStorage.clear();
                         dispatch(logoutUser());
                         history.push("/");
                     }} >LOGOUT</NavLink>
                 </li>
-
                 </> : 
                 <>
                 <li className="nav-item">
