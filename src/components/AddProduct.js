@@ -1,8 +1,13 @@
-import React,{useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import {mobile} from "../responsive";
 import { useDispatch } from 'react-redux';
 import { addProduct } from '../redux/actions';
+import {useFormik} from 'formik';
+import * as Yup from 'yup';
+import PriorityHighIcon from '@mui/icons-material/PriorityHigh';
+import { Prompt } from 'react-router';
+
 
 
 
@@ -54,46 +59,72 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
+  border-radius: 1vw;
 `;
 
+const validationSchema = Yup.object({
+  name:Yup.string().required(<PriorityHighIcon/>),
+  imgLink:Yup.string().required(<PriorityHighIcon/>),
+  description:Yup.string().required(<PriorityHighIcon/>),
+  manufacturer:Yup.string().required(<PriorityHighIcon/>),
+  price:Yup.number().required(<PriorityHighIcon/>).integer().positive(),
+  quantity:Yup.number().required(<PriorityHighIcon/>).integer().positive()
+});
+
 const AddProduct = () => {
-  const [name, setName] = useState('');
-  const [imgLink, setImgLink] = useState('');
-  const [description, setDescription] = useState('');
-  const [manufacturer, setManufacturer] = useState('');
-  const [price, setPrice] = useState('');
-  const [quantity, setQuantity] = useState('');
-
   const dispatch = useDispatch();
+  const {handleSubmit, handleChange,handleReset, values, errors,touched} = useFormik({
+    initialValues:{
+      name:"",
+      imgLink:"",
+      description:"",
+      manufacturer:"",
+      price:"",
+      quantity:""
+    },
+    validationSchema,
+    onSubmit(values){
+      dispatch(addProduct({
+        "name":values.name,
+        "img":values.imgLink,
+        "description" : values.description,
+        "manufacturer" : values.manufacturer,
+        "price" : values.price,
+        "quantity" : values.quantity,
+        "count" : 0
+      }));
 
-  
-  const handleSubmit = e =>{
-    e.preventDefault();
-    dispatch(addProduct({
-      "name":name,
-      "img":imgLink,
-      "description" : description,
-      "manufacturer" : manufacturer,
-      "price" : price,
-      "quantity" : quantity,
-      "count" : 0
-    }))
-  };
-
+    }
+  });
 
   return (
     <div>
         <Container>
+          <Prompt when={!values.name || !values.imgLink || !values.description || !values.manufacturer || !values.price || !values.quantity} 
+          message={"Do you want to discard the changes?"} />
           <Wrapper>
             <Title>Enter product details</Title>
-            <Form onSubmit={e=>handleSubmit(e)}>
-              <Input type="text"  placeholder='name'  onChange={e=>setName(e.target.value)}/>
-              <Input type="text" placeholder='Image Link' onChange={e=>setImgLink(e.target.value)} />
-              <Input type="text" placeholder='Description' onChange={e=>setDescription(e.target.value)} />
-              <Input type="text" placeholder='Manufacturer' onChange={e=>setManufacturer(e.target.value)} />
-              <Input type="text" placeholder='Price' onChange={e=>setPrice(e.target.value)} />
-              <Input type="text" placeholder='Quantity' onChange={e=>setQuantity(e.target.value)} />
+            <Form onSubmit={handleSubmit}>
+              {touched.name && errors.name ? <div style={{color:"red",display:'inline'}}>{errors.name}</div> :<></>}
+              <Input type="text"  name="name" placeholder='name'  onChange={handleChange} value={values.name}/>
+              
+              {touched.imgLink && errors.imgLink ? <div style={{color:"red",display:'inline'}}>{errors.imgLink}</div> :<></>}
+              <Input type="text" name="imgLink" placeholder='Image Link' onChange={handleChange} value={values.imgLink}/>
+              
+              {touched.description && errors.description ? <div style={{color:"red",display:'inline'}}>{errors.description}</div> :<></>}
+              <Input type="text" name="description" placeholder='Description' onChange={handleChange} value={values.description}/>
+              
+              {touched.manufacturer && errors.manufacturer ? <div style={{color:"red",display:'inline'}}>{errors.manufacturer}</div> :<></>}
+              <Input type="text" name="manufacturer" placeholder='Manufacturer' onChange={handleChange} value={values.manufacturer}/>
+
+              {touched.price && errors.price ? <div style={{color:"red",display:'inline'}}>{errors.price}</div> :<></>}
+              <Input type="text" name="price" placeholder='Price' onChange={handleChange} value={values.price}/>
+
+              {touched.quantity && errors.quantity ? <div style={{color:"red",display:'inline'}}>{errors.quantity}</div> :<></>}
+              <Input type="text" name="quantity" placeholder='Quantity' onChange={handleChange} value={values.quantity}/>
+
               <Button type="submit">SUBMIT</Button>
+              <Button onClick={handleReset} style={{backgroundColor:"rgb(125,30,30)"}}>Reset</Button>
             </Form>
           </Wrapper>
         </Container>

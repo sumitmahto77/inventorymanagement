@@ -8,6 +8,7 @@ const Container = styled.div`
     flex-wrap: nowrap;
     justify-content: space-between;
     padding: 1vw;
+    min-width: 280px;
 `;
 const Button = styled.button`
     background-color: teal;

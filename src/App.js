@@ -23,8 +23,7 @@ const App = () => {
   
   return (
     
-      <Router>
-        
+      <Router>  
         <Navbar token={token}/>
       <Switch>
         <Route exact path="/" > <Home/></Route>

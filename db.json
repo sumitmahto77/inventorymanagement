@@ -1,42 +1,6 @@
 {
   "users": [
     {
-      "email": "u@gmail.com",
-      "password": "$2a$10$8EDXNPMaenuj62fKgP9kKeXxwuWYMqH/1I/q5/RdyBBY888tJ5tJm",
-      "firstName": "user",
-      "lastName": "kumar",
-      "location": "godda",
-      "phone": "12345",
-      "id": 1
-    },
-    {
-      "email": "sumitmahto77@gmail.com",
-      "password": "$2a$10$6fvfGsLFpmog6hMfJaGct.mCOqpXkhst9dpMHQ/AfGMa7djtBbv1e",
-      "firstName": "Sumit",
-      "lastName": "Kumar",
-      "location": "Bangalaore",
-      "phone": "07297066735",
-      "id": 2
-    },
-    {
-      "email": "u2@gmail.com",
-      "password": "$2a$10$J01ATRBfdOUrVojGOMbILe4fUGqehiUDexO6l7fydzih6ZG1l.Pcu",
-      "firstName": "User2",
-      "lastName": "Kumar2",
-      "location": "Howran",
-      "phone": "123456789",
-      "id": 3
-    },
-    {
-      "email": "u777@gmail.com",
-      "password": "$2a$10$GR8qc6Y.6677hhWhEiNPfeRDLJ80w.WP1yMNWQBUXTzw0/o3l4pL.",
-      "firstName": "User3",
-      "lastName": "Kumar",
-      "location": "bangala",
-      "phone": "07297066735",
-      "id": 4
-    },
-    {
       "email": "amit@gmail.com",
       "password": "$2a$10$WPRNWlOpn6XuqQwmTTbH.ezCuZAkr6aetqTTsxPf0p8oPZZjaA0Yu",
       "firstName": "Amit ",
@@ -44,15 +8,6 @@
       "location": "Delhi",
       "phone": "999999999",
       "id": 5
-    },
-    {
-      "email": "user9@gmail.com",
-      "password": "$2a$10$hH1d4Badkuq3lnhjxFhRD.SATQehrn62km6c3oj5nq6o0SJzBXGRa",
-      "firstName": "user9",
-      "lastName": "kumar9",
-      "location": "loc9",
-      "phone": "12345",
-      "id": 6
     }
   ],
   "products": [
@@ -93,7 +48,7 @@
       "manufacturer": "Zara",
       "price": "12000",
       "quantity": "10",
-      "count": 10,
+      "count": 11,
       "id": 9
     }
   ]

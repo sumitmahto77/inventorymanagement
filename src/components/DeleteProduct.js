@@ -33,7 +33,7 @@ const DeleteProduct = () => {
       dispatch(deleteProduct(id));
     }
   };
-  const deleteCustomerByIds = () => {
+  const deleteProductByIds = () => {
     let arrayids = [];
     stateProduct.forEach(d => {
       if (d.select) {
@@ -114,10 +114,10 @@ const DeleteProduct = () => {
     <button
         className="btn btn-danger btn-sm m-2"
         onClick={() => {
-          deleteCustomerByIds();
+          deleteProductByIds();
         }}
       >
-        Delete Customer
+        Delete Product
       </button>
 
     </div>
