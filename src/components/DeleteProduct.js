@@ -28,13 +28,14 @@ const DeleteProduct = () => {
     );
   },[]);
 
-  const handleDelete = (id) => {
-    if(window.confirm("Are you sure?")){
-      dispatch(deleteProduct(id));
-    }
-  };
+  // const handleDelete = (id) => {
+  //   if(window.confirm("Are you sure?")){
+  //     dispatch(deleteProduct(id));
+  //   }
+  // };
   const deleteProductByIds = () => {
-    let arrayids = [];
+    if(window.confirm("Are you sure?")){
+      let arrayids = [];
     stateProduct.forEach(d => {
       if (d.select) {
         axios
@@ -46,6 +47,8 @@ const DeleteProduct = () => {
       .catch(err => alert(err));
       }
     });
+    }
+    
     
   };
 

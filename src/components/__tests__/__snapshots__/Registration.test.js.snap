@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Registration component Snapshot Renders correctly 1`] = `
+<div
+  className="sc-bczRLJ gAJGBz"
+>
+  <div
+    className="sc-gsnTZi bhLUiU"
+  >
+    <h1
+      className="sc-dkzDqf cBSyNJ"
+    >
+      CREATE AN ACCOUNT
+    </h1>
+    <form
+      className="sc-hKMtZM ePPhml"
+      onSubmit={[Function]}
+    >
+      <input
+        className="sc-eCYdqJ bxJwlw"
+        name="firstName"
+        onChange={[Function]}
+        placeholder="first name"
+        type="text"
+        value=""
+      />
+      <input
+        className="sc-eCYdqJ bxJwlw"
+        name="lastName"
+        onChange={[Function]}
+        placeholder="last name"
+        type="text"
+        value=""
+      />
+      <input
+        className="sc-eCYdqJ bxJwlw"
+        name="location"
+        onChange={[Function]}
+        placeholder="location"
+        type="text"
+        value=""
+      />
+      <input
+        className="sc-eCYdqJ bxJwlw"
+        name="email"
+        onChange={[Function]}
+        placeholder="email"
+        type="email"
+        value=""
+      />
+      <input
+        className="sc-eCYdqJ bxJwlw"
+        name="phone"
+        onChange={[Function]}
+        placeholder="phone number"
+        type="text"
+        value=""
+      />
+      <input
+        className="sc-eCYdqJ bxJwlw"
+        name="password"
+        onChange={[Function]}
+        placeholder="password"
+        type="password"
+        value=""
+      />
+      <span
+        className="sc-jSMfEi eVQROJ"
+      >
+        By creating an account, I consent to the processing of my personal data in accordance with the 
+        <b>
+          PRIVACY POLICY
+        </b>
+      </span>
+      <button
+        className="sc-gKXOVf dJiKET"
+        type="submit"
+      >
+        CREATE
+      </button>
+    </form>
+  </div>
+</div>
+`;

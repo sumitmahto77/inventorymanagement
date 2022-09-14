@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Product component Renders correctly 1`] = `
+<div>
+  <div
+    className="sc-bczRLJ hpVfXr"
+  >
+    <div
+      className="sc-gsnTZi hlGoBi"
+    >
+      <h1
+        className="sc-dkzDqf cBSyNJ"
+      >
+        Enter product details
+      </h1>
+      <form
+        className="sc-hKMtZM cfGbOi"
+        onSubmit={[Function]}
+      >
+        <input
+          className="sc-eCYdqJ liMeyO"
+          name="name"
+          onChange={[Function]}
+          placeholder="name"
+          type="text"
+          value=""
+        />
+        <input
+          className="sc-eCYdqJ liMeyO"
+          name="imgLink"
+          onChange={[Function]}
+          placeholder="Image Link"
+          type="text"
+          value=""
+        />
+        <input
+          className="sc-eCYdqJ liMeyO"
+          name="description"
+          onChange={[Function]}
+          placeholder="Description"
+          type="text"
+          value=""
+        />
+        <input
+          className="sc-eCYdqJ liMeyO"
+          name="manufacturer"
+          onChange={[Function]}
+          placeholder="Manufacturer"
+          type="text"
+          value=""
+        />
+        <input
+          className="sc-eCYdqJ liMeyO"
+          name="price"
+          onChange={[Function]}
+          placeholder="Price"
+          type="text"
+          value=""
+        />
+        <input
+          className="sc-eCYdqJ liMeyO"
+          name="quantity"
+          onChange={[Function]}
+          placeholder="Quantity"
+          type="text"
+          value=""
+        />
+        <button
+          className="sc-jSMfEi jVZLjO"
+          type="submit"
+        >
+          SUBMIT
+        </button>
+        <button
+          className="sc-jSMfEi jVZLjO"
+          onClick={[Function]}
+          style={
+            Object {
+              "backgroundColor": "rgb(125,30,30)",
+            }
+          }
+        >
+          Reset
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

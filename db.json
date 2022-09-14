@@ -12,44 +12,24 @@
   ],
   "products": [
     {
-      "id": 3,
-      "name": "Dress",
-      "img": "https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
-      "description": "White Sneaker",
+      "name": "Nike ",
+      "img": "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "description": "Nike Air Jordan 5 with yellow logo.",
       "manufacturer": "Nike",
-      "price": "3000",
-      "quantity": "22",
-      "count": 16
+      "price": "9500",
+      "quantity": "25",
+      "count": 0,
+      "id": 1
     },
     {
-      "id": 4,
-      "name": "Bag",
-      "img": "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
-      "description": "White Sneaker",
+      "name": "Nike Air Force 1",
+      "img": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/4f37fca8-6bce-43e7-ad07-f57ae3c13142/air-force-1-07-shoe-WrLlWX.png",
+      "description": "Nike Air Force 1 '07",
       "manufacturer": "Nike",
-      "price": "3000",
-      "quantity": "22",
-      "count": 8
-    },
-    {
-      "img": "https://images.pexels.com/photos/1102776/pexels-photo-1102776.jpeg?auto=compress&cs=tinysrgb&w=600",
-      "description": "Black Sneakers by Yeezy",
-      "manufacturer": "Yeezy",
-      "price": "9000",
-      "quantity": "122",
-      "count": 6,
-      "id": 8,
-      "name": "Black Sneakers"
-    },
-    {
-      "name": "Overcoat",
-      "img": "https://images.pexels.com/photos/5926246/pexels-photo-5926246.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      "description": "Black Overcoat",
-      "manufacturer": "Zara",
-      "price": "12000",
+      "price": "7500",
       "quantity": "10",
-      "count": 11,
-      "id": 9
+      "count": 0,
+      "id": 2
     }
   ]
 }

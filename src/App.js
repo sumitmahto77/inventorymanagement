@@ -14,10 +14,6 @@ import DeleteProduct from './components/DeleteProduct';
 import Profile from './components/Profile';
 
 
-
-
-
-
 const App = () => {
   const token = useSelector((state)=>state.auth.token);
   

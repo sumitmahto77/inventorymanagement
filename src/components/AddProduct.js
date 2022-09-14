@@ -93,6 +93,8 @@ const AddProduct = () => {
         "quantity" : values.quantity,
         "count" : 0
       }));
+      alert("Product Added Successfully!");
+      handleReset();
 
     }
   });

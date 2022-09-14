@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {mobile} from "../responsive";
+import { Link } from "react-router-dom";
 
 import {useState} from "react";
 import {useDispatch} from "react-redux";
@@ -59,12 +60,12 @@ const Button = styled.button`
   margin-bottom: 10px;
 `;
 
-const Link = styled.a`
-  margin: 5px 0px;
-  font-size: 12px;
-  text-decoration: underline;
-  cursor: pointer;
-`;
+// const Link = styled.a`
+//   margin: 5px 0px;
+//   font-size: 12px;
+//   text-decoration: underline;
+//   cursor: pointer;
+// `;
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -92,7 +93,7 @@ const handleSubmit =  e => {
           <Input type="text"  placeholder="username" onChange={e => setEmail(e.target.value)}/>
           <Input  type="password" placeholder="password" onChange={e => setPassword(e.target.value)}/>
           <Button type="submit">LOGIN</Button>
-          <Link>CREATE A NEW ACCOUNT</Link>
+          <Link to="/register">CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
     </Container>

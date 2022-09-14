@@ -12,8 +12,6 @@ describe('Home', () =>{
             <Home/>
         </Router>
         </Provider>
-        
-        
         );
         expect(tree).toMatchSnapshot();
     });
